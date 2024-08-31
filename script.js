@@ -1,8 +1,7 @@
-//your JS code here. If required.
 document.addEventListener('DOMContentLoaded', () => {
     const circles = document.querySelectorAll('.circle');
-    const prevButton = document.getElementById('prev');
     const nextButton = document.getElementById('next');
+    const prevButton = document.getElementById('prev');
     let currentIndex = 0;
 
     function updateButtons() {
@@ -18,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 circle.classList.remove('active');
             }
         });
+        updateButtons();
     }
 
     nextButton.addEventListener('click', () => {
         if (currentIndex < circles.length - 1) {
             currentIndex++;
             updateCircles();
-            updateButtons();
         }
     });
 
@@ -32,10 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentIndex > 0) {
             currentIndex--;
             updateCircles();
-            updateButtons();
         }
     });
 
-    // Initialize
-    updateButtons();
+    updateButtons(); // Initialize buttons state
 });
